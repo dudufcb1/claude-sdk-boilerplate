@@ -9,6 +9,7 @@ from typing import Dict, Any, Optional, List
 from ..config.mcp_setup import get_claude_mcp_config
 from ..core.session_tracker import SessionTracker
 from ..hooks.supervisor import SupervisorHook
+from ..tools.datetime_tool import CURRENT_DATETIME_TOOL, execute_current_datetime
 
 
 class ClaudeAgentConfig:
@@ -36,7 +37,9 @@ class ClaudeAgentConfig:
             "Bash",
             "Edit",
             "Glob",
-            "Grep"
+            "Grep",
+            # Tool de ejemplo (no-MCP): fecha/hora actual
+            "current_datetime",
         ]
 
     def create_session_tracker(self) -> SessionTracker:

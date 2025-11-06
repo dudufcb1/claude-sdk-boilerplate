@@ -124,6 +124,12 @@ Nota: se añadió una espera corta de drenaje para mensajes que llegan inmediata
 - `--no-hooks` → deshabilita hooks (útil al depurar AbortError del CLI Node)
 - `--verbose` → logs detallados (init completo, tipos de bloques, preview de thinking, resultados de tools)
 
+### Tool de ejemplo incluida
+- `current_datetime` (no-MCP): Devuelve la fecha/hora actual.
+  - Parámetro opcional: `format` = `iso` (default), `iso_utc`, `unix`, `human`
+  - Definición: inyectada en runtime vía `tools=[...]` (start_agent.py:172-204)
+  - Ejecutor: `claude_agent/tools/datetime_tool.py` (si implementas el loop de tools manual, úsalo)
+
 Archivo/líneas clave: `start_agent.py:404-469`
 
 ---

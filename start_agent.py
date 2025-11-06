@@ -169,6 +169,27 @@ class ClaudeAgentCLI:
                     "PostToolUse": [HookMatcher(matcher=None, hooks=[tracking_hook])]
                 }
 
+            # Inyectar definición de tool de ejemplo (no-MCP)
+            example_tools = [
+                {
+                    "name": "current_datetime",
+                    "description": (
+                        "Devuelve la fecha/hora actuales. Úsala para contextualizar tiempo. "
+                        "Acepta un parámetro opcional 'format': 'iso'|'iso_utc'|'unix'|'human'."
+                    ),
+                    "input_schema": {
+                        "type": "object",
+                        "properties": {
+                            "format": {
+                                "type": "string",
+                                "enum": ["iso", "iso_utc", "unix", "human"],
+                                "description": "Formato opcional del resultado"
+                            }
+                        }
+                    }
+                }
+            ]
+
             options = ClaudeAgentOptions(
                 system_prompt=self.agent_options['system_prompt'],
                 cwd=str(self.project_path),
@@ -178,7 +199,8 @@ class ClaudeAgentCLI:
                 hooks=hooks_cfg,
                 settings=str(self.settings_path),  # ajustes CLI
                 env=env_vars,  # credenciales/base url para CLI
-                continue_conversation=True
+                continue_conversation=True,
+                tools=example_tools,
             )
 
             # Crear y conectar cliente SDK
