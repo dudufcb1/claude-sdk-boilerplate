@@ -26,5 +26,20 @@ dist/
 sessions/
 claude_agent/sessions/
 
+# Local code index/cache (changes per machine)
+.codebase/
+
+# Python tooling caches
+.ruff_cache/
+.tox/
+.nox/
+.pytype/
+.cache/
+__pypackages__/
+pip-wheel-metadata/
+pip-log.txt
+coverage.xml
+.coverage.*
+
 # Logs
 *.log
