@@ -1,0 +1,8 @@
+# Anthropic Claude SDK
+anthropic>=0.39.0
+
+# Claude Agent SDK (Python)
+claude-agent-sdk>=0.0.18
+
+# Utilidades
+python-dotenv>=1.0.0
