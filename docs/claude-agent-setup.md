@@ -127,8 +127,7 @@ Nota: se añadió una espera corta de drenaje para mensajes que llegan inmediata
 ### Tool de ejemplo incluida
 - `current_datetime` (no-MCP): Devuelve la fecha/hora actual.
   - Parámetro opcional: `format` = `iso` (default), `iso_utc`, `unix`, `human`
-  - Definición: inyectada en runtime vía `tools=[...]` (start_agent.py:172-204)
-  - Ejecutor: `claude_agent/tools/datetime_tool.py` (si implementas el loop de tools manual, úsalo)
+  - Definición: aprobada como allowed_tool (start_agent.py/agent_config.py) y ejecutor disponible en `claude_agent/tools/datetime_tool.py` para bucles de tools manuales.
 
 Archivo/líneas clave: `start_agent.py:404-469`
 

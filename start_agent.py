@@ -200,7 +200,6 @@ class ClaudeAgentCLI:
                 settings=str(self.settings_path),  # ajustes CLI
                 env=env_vars,  # credenciales/base url para CLI
                 continue_conversation=True,
-                tools=example_tools,
             )
 
             # Crear y conectar cliente SDK
