@@ -4,6 +4,43 @@ Guía de configuración, decisiones, problemas resueltos y uso práctico del CLI
 
 ---
 
+## Quick Start
+
+1) Crear y activar entorno virtual
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+2) Instalar dependencias
+```
+pip install -r requirements.txt
+```
+
+3) Configurar settings (proxy + token)
+- Preferido: `~/.claude-sdk/settings.json` con al menos:
+```json
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://localhost:4141/",
+    "ANTHROPIC_AUTH_TOKEN": "***"
+  }
+}
+```
+- El CLI mapeará `ANTHROPIC_AUTH_TOKEN` → `ANTHROPIC_API_KEY` automáticamente y pasará `ANTHROPIC_BASE_URL` a la CLI de Claude Code.
+
+4) Probar el CLI (depuración)
+```
+python start_agent.py /ruta/al/proyecto --no-hooks --verbose
+```
+- Verás `⚙️ Settings: ...`, `🪪 Verbose: ON`, y respuestas del asistente.
+
+5) Opcional: contexto limpio o condensado
+- Contexto limpio: `--new-session`
+- Condensar última sesión e inyectar supervisor: `--condense`
+
+---
+
 ## 1) Objetivo
 Dejar un agente CLI reutilizable que:
 - Se ejecute en cualquier directorio de proyecto (sin hardcodes)
